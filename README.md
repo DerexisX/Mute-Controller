@@ -1,39 +1,21 @@
 # Audio Mute Controller
 
-A Python script that lists all applications currently playing audio on your Windows machine and allows you to mute or unmute a selected application with a single key press.
+A simple Windows utility to list all applications currently playing audio and allow you to mute or unmute a selected application with a single key press.
 
 ## Features
 
 - Lists all applications with active audio sessions.
-- Allows you to select an application from the list.
-- Toggle mute/unmute for the selected application.
-- Refresh the list of applications.
-- Simple command-line interface.
+- Allows you to select an application from the list to control.
+- Toggle mute/unmute for the selected application using a hotkey.
+- Refresh the list of applications without restarting the script.
+- Simple and lightweight command-line interface.
 
-## Requirements
+## How to Use (Executable)
 
-- Python 3.x
-- The script will automatically install the following required Python packages using pip:
-  - `pycaw`: for audio control on Windows.
-  - `comtypes`: a dependency for `pycaw`.
-  - `keyboard`: for global key press detection.
-
-## How to Run
-
-1.  Make sure you have Python installed.
-2.  Save the code as a Python file (e.g., `audio_mute_controller.py`).
-3.  Open a command prompt or terminal.
-4.  Navigate to the directory where you saved the file.
-5.  Run the script with administrator privileges:
-    ```bash
-    python audio_mute_controller.py
-    ```
-    _Administrator privileges may be required for the `keyboard` library to capture key presses and for `pycaw` to control system audio._
-
-## Usage
-
-1.  When you run the script, it will display a list of programs that are currently playing audio.
-2.  Enter the number corresponding to the program you want to control and press `Enter`.
+1.  Download the `audio_mute_controller.exe` from the latest release.
+2.  Run the executable. It is recommended to run it with **administrator privileges** for it to function correctly.
+3.  A terminal window will appear, listing all programs currently making sound.
+4.  Enter the number of the program you wish to control and press `Enter`.
 
 ### Program Selection Menu
 
@@ -49,22 +31,27 @@ Once a program is selected, you can use the following keys:
 - **'Home'**: Go back to the program selection menu.
 - **'End'**: Exit the script.
 
-## Creating an Executable
+---
 
-You can create a standalone executable from this script using `pyinstaller`.
+<details>
+<summary><b>For Developers (Running from Source)</b></summary>
 
-1.  Install `pyinstaller`:
+### Requirements
+
+- Python 3.x
+- The script will automatically attempt to install the following required Python packages using pip:
+  - `pycaw`: for audio control on Windows.
+  - `comtypes`: a dependency for `pycaw`.
+  - `keyboard`: for global key press detection.
+
+### How to Run from Source
+
+1.  Make sure you have Python installed.
+2.  Save the code as a Python file (e.g., `audio_mute_controller.py`).
+3.  Open a command prompt or terminal.
+4.  Navigate to the directory where you saved the file.
+5.  Run the script:
     ```bash
-    pip install pyinstaller
+    python audio_mute_controller.py
     ```
-2.  Navigate to the script's directory in your terminal.
-3.  Run the following command:
-
-    ```bash
-    pyinstaller --onefile --noconsole audio_mute_controller.py
-    ```
-
-    - `--onefile`: Packages everything into a single executable.
-    - `--noconsole`: Prevents the command prompt from appearing when you run the executable.
-
-4.  The executable will be located in the `dist` folder. You can run this `.exe` file directly, preferably with administrator rights.
+    _Administrator privileges may be required for the `keyboard` library to capture key presses and for `pycaw` to control system audio._
